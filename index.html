@@ -2,92 +2,92 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bé có yêu anh Phi không?</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: white;
-      text-shadow: 2px 2px 4px #000;
-    }
-    h1 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .buttons {
-      display: flex;
-      gap: 20px;
-    }
-    button {
-      font-size: 1.2rem;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    #no {
-      background-color: white;
-      color: black;
-    }
-    #yes {
-      background-color: #f24b6a;
-      color: white;
-      position: absolute;
-    }
-    #cry {
-      display: none;
-      font-size: 1.5rem;
-      margin-top: 20px;
-      animation: shake 0.5s ease-in-out infinite;
-    }
-    @keyframes shake {
-      0% { transform: translate(1px, 1px) rotate(0deg); }
-      10% { transform: translate(-1px, -2px) rotate(-1deg); }
-      20% { transform: translate(-3px, 0px) rotate(1deg); }
-      30% { transform: translate(3px, 2px) rotate(0deg); }
-      40% { transform: translate(1px, -1px) rotate(1deg); }
-      50% { transform: translate(-1px, 2px) rotate(-1deg); }
-      60% { transform: translate(-3px, 1px) rotate(0deg); }
-      70% { transform: translate(3px, 1px) rotate(-1deg); }
-      80% { transform: translate(-1px, -1px) rotate(1deg); }
-      90% { transform: translate(1px, 2px) rotate(0deg); }
-      100% { transform: translate(1px, -2px) rotate(-1deg); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Phi Yêu Em</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 182, 193, 0.85);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 1.6em;
+            color: #222;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+        #yes {
+            background-color: #ff5e7e;
+            color: white;
+            position: relative;
+        }
+        #no {
+            background-color: #ffffff;
+            color: #ff5e7e;
+        }
+        #message {
+            margin-top: 25px;
+            font-size: 1.2em;
+            color: #444;
+            display: none;
+            animation: fadeIn 0.7s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
 </head>
 <body>
-  <h1>Cho anh hỏi, bé có yêu anh <span style="color: #ff8080;">Phi</span> của bé không?</h1>
-  <div class="buttons">
-    <button id="no">không</button>
-    <button id="yes">có</button>
-  </div>
-  <div id="cry">😢 Anh biết ngay mà... thì ra em chẳng yêu anh 😭</div>
+    <div class="container">
+        <h1>Cho anh hỏi, bé có yêu anh <span style="color:#ff4b6e;">Phi</span> của bé không?</h1>
+        <div class="buttons">
+            <button id="yes">có</button>
+            <button id="no">không</button>
+        </div>
+        <div id="message">Anh biết ngay mà thì ra em chẳng yêu anh 😭</div>
+    </div>
 
-  <script>
-    const yesButton = document.getElementById("yes");
+    <script>
+        const yesBtn = document.getElementById('yes');
+        const noBtn = document.getElementById('no');
+        const msg = document.getElementById('message');
 
-    document.body.addEventListener("mousemove", function(e) {
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 50);
-      yesButton.style.left = x + "px";
-      yesButton.style.top = y + "px";
-    });
+        yesBtn.addEventListener('mouseover', () => {
+            const i = Math.floor(Math.random() * 300) - 150;
+            const j = Math.floor(Math.random() * 300) - 150;
+            yesBtn.style.transform = `translate(${i}px, ${j}px)`;
+        });
 
-    document.getElementById("no").onclick = function() {
-      document.getElementById("cry").style.display = "block";
-    };
-  </script>
+        noBtn.addEventListener('click', () => {
+            msg.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
